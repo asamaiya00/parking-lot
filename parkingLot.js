@@ -2,6 +2,7 @@ export default class ParkingLot {
   currentSize = 0;
   spots = [];
   regNumberTicketNumberMap = new Map();
+  colorRegNumbersMap = new Map();
 
   constructor(number) {
     if (number) console.log(this.create(number));
@@ -34,11 +35,20 @@ export default class ParkingLot {
     this.regNumberTicketNumberMap[car.registrationNumber] = spot + 1;
     this.currentSize++;
     // console.log(this.spots);
+    const color = car.color.toUpperCase();
+    if (this.colorRegNumbersMap[color]) {
+      this.colorRegNumbersMap[color].push(car.registrationNumber);
+    } else this.colorRegNumbersMap[color] = [car.registrationNumber];
+
     console.log(car);
     return `Car ${car.registrationNumber} parked at spot ${spot + 1}`;
   }
 
   getNearestEmptySpot() {
     return this.spots.indexOf('empty');
+  }
+
+  getRegistrationNumbersByColor(color) {
+    return this.colorRegNumbersMap[color.toUpperCase()] || [];
   }
 }
