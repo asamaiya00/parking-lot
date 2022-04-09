@@ -35,10 +35,9 @@ export default class ParkingLot {
     this.regNumberTicketNumberMap[car.registrationNumber] = spot + 1;
     this.currentSize++;
     // console.log(this.spots);
-    const color = car.color.toUpperCase();
-    if (this.colorRegNumbersMap[color]) {
-      this.colorRegNumbersMap[color].push(car.registrationNumber);
-    } else this.colorRegNumbersMap[color] = [car.registrationNumber];
+    if (this.colorRegNumbersMap[car.color]) {
+      this.colorRegNumbersMap[car.color].push(car.registrationNumber);
+    } else this.colorRegNumbersMap[car.color] = [car.registrationNumber];
 
     console.log(car);
     return `Car ${car.registrationNumber} parked at spot ${spot + 1}`;
@@ -49,6 +48,12 @@ export default class ParkingLot {
   }
 
   getRegistrationNumbersByColor(color) {
-    return this.colorRegNumbersMap[color.toUpperCase()] || [];
+    return this.colorRegNumbersMap[color?.toUpperCase()] || [];
+  }
+
+  getTicketNumberByRegistrationNumber(registrationNumber) {
+    return (
+      this.regNumberTicketNumberMap[registrationNumber?.toUpperCase()] || 0
+    );
   }
 }

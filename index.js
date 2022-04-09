@@ -15,3 +15,6 @@ console.log(parkingLot.parkCar(car3));
 console.log(parkingLot.getRegistrationNumbersByColor('Red'));
 console.log(parkingLot.getRegistrationNumbersByColor('Black'));
 console.log(parkingLot.getRegistrationNumbersByColor('White'));
+
+console.log(parkingLot.getTicketNumberByRegistrationNumber('ABC-123'));
+console.log(parkingLot.getTicketNumberByRegistrationNumber('rry-531'));

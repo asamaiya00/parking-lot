@@ -29,4 +29,11 @@ test('get by color', () => {
   parkingLot.parkCar(car2);
   parkingLot.parkCar(car3);
   expect(parkingLot.getRegistrationNumbersByColor('black')).toHaveLength(2);
+  expect(parkingLot.getRegistrationNumbersByColor('purple')).toHaveLength(0);
+});
+
+test('get ticket number by registration number', () => {
+  parkingLot.parkCar(car);
+  expect(parkingLot.getTicketNumberByRegistrationNumber('abc-123')).toBe(1);
+  expect(parkingLot.getTicketNumberByRegistrationNumber('invalid')).toBe(0);
 });
