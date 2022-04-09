@@ -9,8 +9,10 @@ const car5 = new Car('JUT-351', 'black');
 const car6 = new Car('FIS-356', 'BLACK');
 const parkingLot = new ParkingLot();
 
-// console.log(car);
+// - create a parking lot
 console.log(parkingLot.create(4));
+
+// - park cars in it
 console.log(parkingLot.parkCar(car));
 console.log(parkingLot.parkCar(car2));
 console.log(parkingLot.parkCar(car3));
@@ -18,13 +20,19 @@ console.log(parkingLot.parkCar(car4));
 console.log(parkingLot.parkCar(car5));
 console.log(parkingLot.parkCar(car6));
 console.log();
+
+// Registration numbers of all cars of a particular Color.
 console.log(parkingLot.getRegistrationNumbersByColor('purple'));
 console.log(parkingLot.getRegistrationNumbersByColor('Black'));
 console.log(parkingLot.getRegistrationNumbersByColor('WHITE'));
 console.log();
+
+// Ticket number in which a car with a given registration number is placed.
 console.log(parkingLot.getTicketNumberByRegistrationNumber('ABC-123'));
 console.log(parkingLot.getTicketNumberByRegistrationNumber('rry-531'));
 console.log();
+
+// Ticket numbers of all ticket where a car of a particular color is placed.
 console.log(parkingLot.getTicketNumbersByColor('white'));
 console.log(parkingLot.getTicketNumbersByColor('purple'));
 console.log(parkingLot.getTicketNumbersByColor('black'));
