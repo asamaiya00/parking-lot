@@ -24,7 +24,7 @@ test('park car in lot', () => {
   expect(stmt).toBe('Parking lot is full');
 });
 
-test('get by color', () => {
+test('get registration number by color', () => {
   parkingLot.parkCar(car);
   parkingLot.parkCar(car2);
   parkingLot.parkCar(car3);
@@ -36,4 +36,12 @@ test('get ticket number by registration number', () => {
   parkingLot.parkCar(car);
   expect(parkingLot.getTicketNumberByRegistrationNumber('abc-123')).toBe(1);
   expect(parkingLot.getTicketNumberByRegistrationNumber('invalid')).toBe(0);
+});
+
+test('get ticket number by color', () => {
+  parkingLot.parkCar(car);
+  parkingLot.parkCar(car2);
+  parkingLot.parkCar(car3);
+  expect(parkingLot.getTicketNumbersByColor('black')).toHaveLength(2);
+  expect(parkingLot.getTicketNumbersByColor('purple')).toHaveLength(0);
 });

@@ -5,7 +5,7 @@ export default class ParkingLot {
   colorRegNumbersMap = new Map();
 
   constructor(number) {
-    if (number) console.log(this.create(number));
+    if (number) return this.create(number);
   }
 
   create(number) {
@@ -39,7 +39,7 @@ export default class ParkingLot {
       this.colorRegNumbersMap[car.color].push(car.registrationNumber);
     } else this.colorRegNumbersMap[car.color] = [car.registrationNumber];
 
-    console.log(car);
+    // console.log(car);
     return `Car ${car.registrationNumber} parked at spot ${spot + 1}`;
   }
 
@@ -54,6 +54,13 @@ export default class ParkingLot {
   getTicketNumberByRegistrationNumber(registrationNumber) {
     return (
       this.regNumberTicketNumberMap[registrationNumber?.toUpperCase()] || 0
+    );
+  }
+
+  getTicketNumbersByColor(color) {
+    const regNumbers = this.getRegistrationNumbersByColor(color);
+    return regNumbers.map((regNumber) =>
+      this.getTicketNumberByRegistrationNumber(regNumber)
     );
   }
 }
