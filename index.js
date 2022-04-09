@@ -1,5 +1,5 @@
-import Car from './car.js';
-import ParkingLot from './parkingLot.js';
+import Car from './src/models/car.js';
+import ParkingLot from './src/models/parkingLot.js';
 
 const car = new Car('ABC-123', 'whIte');
 const car2 = new Car('GHJ-355', 'red');

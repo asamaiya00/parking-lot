@@ -1,5 +1,5 @@
-import Car from './car.js';
-import ParkingLot from './parkingLot.js';
+import Car from './models/car.js';
+import ParkingLot from './models/parkingLot.js';
 import inquirer from 'inquirer';
 
 const parkingLotTest = new ParkingLot();

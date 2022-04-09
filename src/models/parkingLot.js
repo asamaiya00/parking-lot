@@ -20,6 +20,9 @@ export default class ParkingLot {
   }
 
   parkCar(car) {
+    if (!car.color || !car.registrationNumber)
+      return 'Please enter both registration number and color for Car';
+
     if (this.regNumberTicketNumberMap[car.registrationNumber])
       return `Car ${car.registrationNumber} is already parked at spot ${
         this.regNumberTicketNumberMap[car.registrationNumber]

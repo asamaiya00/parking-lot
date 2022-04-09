@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "jest --coverage",
-    "start": "node start"
+    "start": "node src/start"
   },
   "keywords": [],
   "author": "",
